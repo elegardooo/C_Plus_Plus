@@ -18,6 +18,7 @@ bool success = false;
 //	void checkTime(Time t);
 //	~Time() {};
 //};
+
 Time::Time(int hr, int min, int sec)
 {
 	setTime(hr, min, sec);
