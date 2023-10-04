@@ -1,6 +1,27 @@
 #pragma once
 #include "MyClass.h"
 
+int input_check(int limit_left, int limit_right)
+{
+	int input = 0;
+	std::cin >> input;
+	while (true)
+	{
+		if (!(std::cin) || input > limit_right || input < limit_left)
+		{
+			std::cout << "Wrong input, try again: " << std::endl;
+
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+			std::cin >> input;
+		}
+		else
+			break;
+	}
+	return input;
+}
+
 Time::Time(int hr, int min, int sec)
 {
 	setTime(hr, min, sec);
@@ -38,26 +59,11 @@ void Time::printStandart24()
 void Time::input()
 {
 	cout << "Enter the hour: ";
-	cin >> hour;
-	/*while(!success)
-	{
-		cin >> hour;
-		if (cin.good())
-		{
-			success = true;
-		}
-		else
-		{
-			cout << "error" << endl;
-			success = false;
-			cin.clear();
-			cin.ignore(cin.rdbuf()->in_avail());
-		}
-	}*/
+	hour = input_check(0, 24);
 	cout << "Enter the minute: ";
-	cin >> minute;
+	minute = input_check(0, 59);
 	cout << "Enter the second: ";
-	cin >> second;
+	second = input_check(0, 59);
 }
 
 int Time::getHour()
@@ -73,4 +79,24 @@ int Time::getMinute()
 int Time::getSecond()
 {
 	return second;
+}
+
+Time operator + (const Time& c1, const Time& c2)
+{
+	return Time(c1.hour + c2.hour, c1.minute + c2.minute, c1.second + c2.second);
+}
+
+int Time::operator + (int number)
+{
+	return hour + number;
+}
+
+Time operator - (const Time& c1, const Time& c2)
+{
+	return Time(c1.hour - c2.hour, c1.minute - c2.minute, c1.second - c2.second);
+}
+
+int Time::operator - (int number)
+{
+	return hour - number;
 }

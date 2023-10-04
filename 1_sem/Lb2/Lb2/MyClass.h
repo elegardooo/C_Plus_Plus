@@ -1,6 +1,6 @@
 #pragma once
-#include<iostream>
-#include<time.h>
+#include <iostream>
+#include <time.h>
 
 using namespace std;
 
@@ -19,13 +19,10 @@ public:
 	int getSecond();
 	void input();
 	void checkTime(Time t);
+	friend Time operator + (const Time& c1, const Time& c2);
+	int operator + (int number);
+	friend Time operator - (const Time& c1, const Time& c2);
+	int operator - (int number);
 	~Time() {};
 };
 
-
-
-
-//Time::Time(int hr, int min, int sec)
-//{
-//	setTime(hr, min, sec);
-//}

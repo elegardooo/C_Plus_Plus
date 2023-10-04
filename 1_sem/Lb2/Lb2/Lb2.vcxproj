@@ -129,9 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Lb2.cpp" />
     <ClCompile Include="MyClass.cpp" />
+    <ClCompile Include="MyStringClass.cpp" />
+    <ClCompile Include="StringMenucpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyClass.h" />
+    <ClInclude Include="MyStringClass.h" />
+    <ClInclude Include="StringMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
