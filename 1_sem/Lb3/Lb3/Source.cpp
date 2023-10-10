@@ -2,15 +2,37 @@
 #include <string.h>
 
 using namespace std;
-class Firma
+class Car
 {
-protected:
-	char naz[20]; // название фирмы
+private:
+	char brand[20];
+	int brand_len;
 public:
-	Firma(char*);
-	~Firma() { cout << "деструктор класса А" << endl; }
-	void Firma_prnt();
+	Car(const char*);
+	~Car() { cout << "Brand destructor" << endl; }
+	const char* GetBrand() const
+	{
+		return brand;
+	}
 };
+
+Car::Car(const char* brand_str)
+{
+	strcpy_s(this->brand, sizeof(brand_str), brand_str);
+	cout << "Car created" << endl;
+}
+
+//Car::Car(const char* brand_str)
+//{
+//	this->brand_len = strlen(brand_str) + 1;
+//	this->brand = new char[brand_len];
+//	for (int i = 0; i < brand_len; i++)
+//	{
+//		this->brand[i] = brand_str[i];
+//	}
+//	cout << "Car created" << endl;
+//}
+
 class Otdel : public Firma
 {
 protected:
@@ -83,4 +105,8 @@ int main()
 	rb.Work_prnt();
 	pt->Work_prnt();
 	return 0;
+}
+
+Car::Car(char&)
+{
 }
