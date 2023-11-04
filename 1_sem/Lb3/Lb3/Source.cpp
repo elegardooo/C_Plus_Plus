@@ -9,7 +9,15 @@ int main()
 {
 	int LWH[]{ 3, 4 ,5 };
 	int enum_index = 1;
-	Shop Mercedes("Mercedes", enum_index, 255.4, 250, 4, LWH, "Black", "Auto Shop");
+	Car Mercedes("Mercedes", enum_index, 255.4, 250, 4, LWH, "Black");
+	/*Mercedes.SetBrand("Mitsubishi");
+	Mercedes.SetEnumIndex(2);
+	Mercedes.SetVolume(264.55);
+	Mercedes.SetPower(270);
+	Mercedes.SetDoor_Num(5);
+	int LWH2[]{ 6, 7, 8 };
+	Mercedes.SetLen_Wid_Height(LWH2);
+	Mercedes.SetColor("White");*/
 	cout << setw(20) << " Car brand: " << Mercedes.GetBrand() << endl;
 	cout << setw(20) << " Engine type: " << Mercedes.GetTextForEnum(enum_index) << endl;
 	cout << setw(20) << " Engine volume: " << Mercedes.GetVolume() << endl;

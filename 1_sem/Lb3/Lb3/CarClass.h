@@ -3,22 +3,8 @@
 #include <string.h>
 
 using namespace std;
-class Car
-{
-private:
-	char* brand;
-	//char brand[20];
-	//int brand_len;
-public:
-	Car(const char* Brand);
-	~Car() { cout << "Car destructor" << endl; }
-	const char* GetBrand() const
-	{
-		return this->brand;
-	}
-};
 
-class Engine : virtual public Car
+class Engine
 {
 private:
 	enum type { petrol = 1, diesel = 2 };
@@ -26,7 +12,7 @@ private:
 	int power;
 	int enum_index;
 public:
-	Engine(const char* brand, int enum_index, double volume, int power);
+	Engine(int enum_index, double volume, int power);
 	~Engine() { cout << "Engine destructor" << endl; }
 	double const GetVolume() const
 	{
@@ -48,15 +34,27 @@ public:
 			return "Not recognized..";
 		}
 	}
+	void const SetVolume(double new_volume)
+	{
+		this->volume = new_volume;
+	}
+	void const SetPower(int new_power)
+	{
+		this->power = new_power;
+	}
+	void const SetEnumIndex(int new_enum_index)
+	{
+		this->enum_index = new_enum_index;
+	}
 };
 
-class Body : virtual public Car
+class Body
 {
 private:
 	int door_num;
 	int Len_Wid_Height[3];
 public:
-	Body(const char* brand, int door_num, int Len_Wid_Height[]);
+	Body(int door_num, int Len_Wid_Height[]);
 	~Body() { cout << "Body destructor" << endl; }
 	int const GetDoorNum() const
 	{
@@ -81,32 +79,65 @@ public:
 	{
 		return this->Len_Wid_Height[2];
 	}
+	void const SetDoor_Num(int new_door_num)
+	{
+		this->door_num = new_door_num;
+	}
+	void const SetLen_Wid_Height(int new_Len_Wid_Height[])
+	{
+		for (int i = 0; i < 3; i++)
+			this->Len_Wid_Height[i] = new_Len_Wid_Height[i];
+	}
 };
 
-class Color : virtual public Car
+class Color
 {
 private:
-	char* color;
+	char color[20];
 public:
-	Color(const char* brand, const char* color);
+	Color(const char* color);
 	~Color() { cout << "Color destructor" << endl; }
 	const char* GetColor()
 	{
 		return this->color;
 	}
-};
-
-class Shop : public Engine, public Body, public Color
-{
-private:
-	char* mag;
-public:
-	Shop(const char* brand, int enum_index, double volume, int power, int door_num, int Len_Wid_Height[], const char* color, const char* mag);
-	~Shop() { cout << "Shop destructor" << endl; }
-	const char* GetMag()
+	void const SetColor(const char* new_color)
 	{
-		return this->mag;
+		strcpy_s(color, 20, new_color);
 	}
 };
+
+class Car : public Engine, public Body, public Color
+{
+private:
+	char brand[20];
+	//char brand[20];
+	//int brand_len;
+public:
+	Car(const char* Brand, int enum_index, double volume, int power, int door_num, int Len_Wid_Height[], const char* Color);
+	~Car() { cout << "Car destructor" << endl; }
+	const char* GetBrand() const
+	{
+		return this->brand;
+	}
+	void SetBrand(const char* new_brand)
+	{
+		strcpy_s(brand, 20, new_brand);
+	}
+};
+
+
+//class Shop : public Engine, public Body, public Color
+//{
+//private:
+//	char* mag;
+//public:
+//	Shop(const char* brand, int enum_index, double volume, int power, int door_num, int Len_Wid_Height[], const char* color, const char* mag);
+//	~Shop() { cout << "Shop destructor" << endl; }
+//	const char* GetMag()
+//	{
+//		return this->mag;
+//	}
+//};
 
 
