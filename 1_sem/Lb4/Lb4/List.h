@@ -1,14 +1,7 @@
 #pragma once
+#include "Node.h"
 
-template <typename T>
-class Node
-{
-public:
-	T data;
-	Node *next;
-	Node(const T &value) : data(value), next(nullptr) {};
-
-};
+using namespace std;
 
 template <typename T>
 class List
@@ -100,6 +93,6 @@ public:
 			cout << tmp->data << " ";
 			tmp = tmp->next;
 		}
-		count << endl;
+		cout << endl;
 	}
 };
