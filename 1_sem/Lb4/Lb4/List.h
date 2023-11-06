@@ -43,4 +43,10 @@ public:
 			delete temp;
 		}
 	}
+	T peek()
+	{
+		if (head != nullptr)
+			return head->data;
+		return NULL;
+	}
 };
