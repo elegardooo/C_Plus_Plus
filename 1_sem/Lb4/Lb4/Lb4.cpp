@@ -13,6 +13,9 @@ int main()
     IntList.push(13);
     cout << "List with int type: ";
     IntList.print();
+    int peek = IntList.peek();
+    int peek_back = IntList.peek_back();
+    cout << "peek: " << peek << "       peek_back: " << peek_back << endl;
     IntList.pop();
     cout << "List after pop: ";
     IntList.print();
