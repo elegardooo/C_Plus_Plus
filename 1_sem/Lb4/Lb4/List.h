@@ -32,4 +32,15 @@ public:
 			head = tmp;
 		}
 	}
+	void pop()
+	{
+		if (head != nullptr)
+		{
+			Node<T>* temp = head;
+			head = head->next;
+			if (head == nullptr)
+				tail = nullptr;
+			delete temp;
+		}
+	}
 };
