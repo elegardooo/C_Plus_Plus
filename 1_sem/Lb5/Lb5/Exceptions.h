@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <stdexcept>
 #include <string.h>
 #define MAX_STRING_LENGTH 80
 
@@ -37,6 +38,11 @@ class StringInputError : public exception
 {
 public:
     StringInputError() : exception(2, "Invalid input for a string.") {}
+};
+
+class EmptyListError : public exception {
+public:
+    EmptyListError() : exception(3, "List is empty.") {}
 };
 
 template <typename T>
