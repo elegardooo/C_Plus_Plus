@@ -9,7 +9,9 @@ int main()
 {
 	int LWH[]{ 3, 4 ,5 };
 	int enum_index = 1;
-	Car Mercedes("Mercedes", enum_index, 255.4, 250, 4, LWH, "Black");
+	char Brand1[] = "Mercedes";
+	char Color1[] = "Black";
+	Car Mercedes(Brand1, enum_index, 255.4, 250, 4, LWH, Color1);
 	/*Mercedes.SetBrand("Mitsubishi");
 	Mercedes.SetEnumIndex(2);
 	Mercedes.SetVolume(264.55);
