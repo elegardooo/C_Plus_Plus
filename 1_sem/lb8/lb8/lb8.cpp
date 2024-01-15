@@ -47,6 +47,8 @@ int main()
         });*/
     IntList.sort();
 
+    //std::sort(IntList.begin(), IntList.end());
+
     std::cout << "sorted forward_list elements: ";
     for (int i : IntList)
     {
